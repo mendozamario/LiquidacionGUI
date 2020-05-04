@@ -97,35 +97,41 @@ namespace DAL
         {
             return liquidacionCuotasModeradoras.Where(l => l.TipoAfiliacion.Equals(tipoAfiliacion)).Sum(l => l.CuotaModeradora);
         }
-        public void Eliminar(string numeroLiquidacion)
+        public bool Eliminar(string numeroLiquidacion)
         {
-            try
+            bool var = false;
+            Consultar();
+            FileStream file = new FileStream(nombreArchivo, FileMode.Create);
+            file.Close();
+            foreach (LiquidacionCuotaModeradora lcm in liquidacionCuotasModeradoras)
             {
-                Consultar();
-                FileStream file = new FileStream(nombreArchivo, FileMode.Create);
-                foreach (LiquidacionCuotaModeradora lcm in liquidacionCuotasModeradoras)
+                if (!(lcm.NumeroLiquidacion.Equals(numeroLiquidacion)))
                 {
-                    if (!(lcm.NumeroLiquidacion.Equals(numeroLiquidacion)))
-                    {
-                        Guardar(lcm);
-                        break;
-                    }
+                    Guardar(lcm);
+                    var = false;
                 }
-                file.Close();
+                else
+                {
+                    var = true;
+                }
             }
-            
-            catch (Exception)
-            {
-                throw;
-            }
+            return var;
         }
-        public List<LiquidacionCuotaModeradora> BuscarPorLiquidacion(string numeroLiquidacion)
+        public LiquidacionCuotaModeradora BuscarPorLiquidacion(string numeroLiquidacion)
         {
-            return liquidacionCuotasModeradoras.Where(liquidacionCuotaModeradora => liquidacionCuotaModeradora.NumeroLiquidacion.Equals(numeroLiquidacion)).ToList();
+            Consultar();
+            return liquidacionCuotasModeradoras.Find(liquidacionCuotasModeradoras => liquidacionCuotasModeradoras.NumeroLiquidacion.Equals(numeroLiquidacion));
         }
         public List<LiquidacionCuotaModeradora> BuscarPorNombre(string nombre)
         {
             return liquidacionCuotasModeradoras.Where(l => l.NombrePaciente.Contains(nombre)).ToList();
+        }
+        public bool Modificar(string numeroLiquidacion, LiquidacionCuotaModeradora liquidacionCuotaMoeradora)
+        {
+            bool var;
+            var = Eliminar(numeroLiquidacion);
+            Guardar(liquidacionCuotaMoeradora);
+            return var;
         }
     }
 }

@@ -27,6 +27,18 @@ namespace BLL
                 return "Hubo un error, verifique e intente nuevamente";
             }
         }
+        public string Eliminar(string numeroLiquidacion)
+        {
+            bool var = liquidacionCuotaModeradoraRepository.Eliminar(numeroLiquidacion);
+            if (var == true)
+            {
+                return "Elemento eliminado satisfactoriamente";
+            }
+            else
+            {
+                return "El elemento no pudo ser eliminado";
+            }
+        }
         public List<LiquidacionCuotaModeradora> Consultar()
         {
             return liquidacionCuotaModeradoraRepository.Consultar();
@@ -51,13 +63,25 @@ namespace BLL
         {
             return liquidacionCuotaModeradoraRepository.SumarPorTipo(tipoAfiliacion);
         }
-        public void Eliminar(string numeroLiquidacion)
-        {
-            liquidacionCuotaModeradoraRepository.Eliminar(numeroLiquidacion);
-        }
-        public List<LiquidacionCuotaModeradora> BuscarPorLiquidacion(string numeroLiquidacion)
+        public LiquidacionCuotaModeradora BuscarPorLiquidacion(string numeroLiquidacion)
         {
             return liquidacionCuotaModeradoraRepository.BuscarPorLiquidacion(numeroLiquidacion);
+        }
+        public List<LiquidacionCuotaModeradora> BuscarPorNombre(string nombre)
+        {
+            return liquidacionCuotaModeradoraRepository.BuscarPorNombre(nombre);
+        }
+        public string Modificar(string numeroLiquidacion, LiquidacionCuotaModeradora liquidacionCuotaMoeradora)
+        {
+            bool var = liquidacionCuotaModeradoraRepository.Modificar(numeroLiquidacion, liquidacionCuotaMoeradora);
+            if (var == true)
+            {
+                return "Se ha modificado satisfactoriamente";
+            }
+            else
+            {
+                return "No pudo ser modificado, lamentamos los inconvenientes";
+            }
         }
     }
 }

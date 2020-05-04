@@ -51,7 +51,7 @@ namespace LiquidacionUI
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            TblVista.DataSource = liquidacionCuotaModeradoraService.BuscarPorNombre(TxtConsultaNombre.Text.Trim());
         }
     }
 }
