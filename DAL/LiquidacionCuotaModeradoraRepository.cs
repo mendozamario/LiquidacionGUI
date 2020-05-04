@@ -119,9 +119,13 @@ namespace DAL
                 throw;
             }
         }
-    public RegimenContributivo BuscarPorLiquidacion(string numeroLiquidacion)
+        public List<LiquidacionCuotaModeradora> BuscarPorLiquidacion(string numeroLiquidacion)
         {
-            return (RegimenContributivo)liquidacionCuotasModeradoras.Find(liquidacionCuotaModeradora => liquidacionCuotaModeradora.NumeroLiquidacion.Equals(numeroLiquidacion));
-        }     
+            return liquidacionCuotasModeradoras.Where(liquidacionCuotaModeradora => liquidacionCuotaModeradora.NumeroLiquidacion.Equals(numeroLiquidacion)).ToList();
+        }
+        public List<LiquidacionCuotaModeradora> BuscarPorNombre(string nombre)
+        {
+            return liquidacionCuotasModeradoras.Where(l => l.NombrePaciente.Contains(nombre)).ToList();
+        }
     }
 }

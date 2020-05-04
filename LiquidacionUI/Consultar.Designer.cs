@@ -45,6 +45,7 @@
             this.LblValorContributivo = new System.Windows.Forms.Label();
             this.LblValorSubsidiado = new System.Windows.Forms.Label();
             this.LblValorTotal = new System.Windows.Forms.Label();
+            this.TxtConsulta = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.TblVista)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,12 +190,21 @@
             this.LblValorTotal.TabIndex = 10;
             this.LblValorTotal.Text = "Valor total:";
             // 
+            // TxtConsulta
+            // 
+            this.TxtConsulta.Location = new System.Drawing.Point(65, 334);
+            this.TxtConsulta.Name = "TxtConsulta";
+            this.TxtConsulta.Size = new System.Drawing.Size(175, 20);
+            this.TxtConsulta.TabIndex = 16;
+            this.TxtConsulta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
             // Consultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1100, 450);
+            this.Controls.Add(this.TxtConsulta);
             this.Controls.Add(this.TxtValorContributivo);
             this.Controls.Add(this.TxtValorSubsidiado);
             this.Controls.Add(this.TxtValorTotal);
@@ -237,5 +247,6 @@
         private System.Windows.Forms.Label LblValorContributivo;
         private System.Windows.Forms.Label LblValorSubsidiado;
         private System.Windows.Forms.Label LblValorTotal;
+        private System.Windows.Forms.TextBox TxtConsulta;
     }
 }

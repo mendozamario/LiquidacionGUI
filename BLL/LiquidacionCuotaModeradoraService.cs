@@ -55,7 +55,7 @@ namespace BLL
         {
             liquidacionCuotaModeradoraRepository.Eliminar(numeroLiquidacion);
         }
-        public RegimenContributivo BuscarPorLiquidacion(string numeroLiquidacion)
+        public List<LiquidacionCuotaModeradora> BuscarPorLiquidacion(string numeroLiquidacion)
         {
             return liquidacionCuotaModeradoraRepository.BuscarPorLiquidacion(numeroLiquidacion);
         }

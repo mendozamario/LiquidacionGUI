@@ -48,5 +48,10 @@ namespace LiquidacionUI
             TxtValorContributivo.Text = liquidacionCuotaModeradoraService.SumarPorTipo("Contributivo").ToString();
             TxtValorSubsidiado.Text = liquidacionCuotaModeradoraService.SumarPorTipo("Subsidiado").ToString();
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }
