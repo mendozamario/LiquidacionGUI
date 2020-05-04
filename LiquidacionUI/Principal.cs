@@ -63,7 +63,10 @@ namespace LiquidacionUI
 
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
-            new Consultar().Visible = true;
+            string numeroLiquidacion = TxtNumeroLiquidacion.Text;
+            lcm = liquidacionCuotaModeradoraService.BuscarPorLiquidacion(numeroLiquidacion);
+            liquidacionCuotaModeradoraService.BuscarPorLiquidacion(numeroLiquidacion).
+            TxtNombrePaciente.Text = lcm.NombrePaciente;
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)

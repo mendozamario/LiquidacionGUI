@@ -47,6 +47,7 @@
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnConsultar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
+            this.BtnEditar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblNumeroLiquidacion
@@ -180,7 +181,7 @@
             this.BtnCalcular.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCalcular.Image = ((System.Drawing.Image)(resources.GetObject("BtnCalcular.Image")));
             this.BtnCalcular.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnCalcular.Location = new System.Drawing.Point(351, 260);
+            this.BtnCalcular.Location = new System.Drawing.Point(351, 240);
             this.BtnCalcular.Name = "BtnCalcular";
             this.BtnCalcular.Size = new System.Drawing.Size(90, 64);
             this.BtnCalcular.TabIndex = 14;
@@ -212,7 +213,7 @@
             this.BtnConsultar.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("BtnConsultar.Image")));
             this.BtnConsultar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnConsultar.Location = new System.Drawing.Point(126, 323);
+            this.BtnConsultar.Location = new System.Drawing.Point(351, 323);
             this.BtnConsultar.Name = "BtnConsultar";
             this.BtnConsultar.Size = new System.Drawing.Size(85, 63);
             this.BtnConsultar.TabIndex = 16;
@@ -228,7 +229,7 @@
             this.BtnEliminar.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("BtnEliminar.Image")));
             this.BtnEliminar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnEliminar.Location = new System.Drawing.Point(217, 323);
+            this.BtnEliminar.Location = new System.Drawing.Point(235, 323);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(85, 63);
             this.BtnEliminar.TabIndex = 17;
@@ -237,12 +238,28 @@
             this.BtnEliminar.UseVisualStyleBackColor = true;
             this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
+            // BtnEditar
+            // 
+            this.BtnEditar.FlatAppearance.BorderSize = 0;
+            this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditar.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditar.Image = ((System.Drawing.Image)(resources.GetObject("BtnEditar.Image")));
+            this.BtnEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnEditar.Location = new System.Drawing.Point(126, 323);
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Size = new System.Drawing.Size(85, 63);
+            this.BtnEditar.TabIndex = 18;
+            this.BtnEditar.Text = "Editar";
+            this.BtnEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.BtnEditar.UseVisualStyleBackColor = true;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(453, 398);
+            this.Controls.Add(this.BtnEditar);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnConsultar);
             this.Controls.Add(this.BtnGuardar);
@@ -291,6 +308,7 @@
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Button BtnConsultar;
         private System.Windows.Forms.Button BtnEliminar;
+        private System.Windows.Forms.Button BtnEditar;
     }
 }
 

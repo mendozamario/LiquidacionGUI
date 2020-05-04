@@ -24,7 +24,7 @@ namespace DAL
                 StreamWriter escritor = new StreamWriter(file);
                 escritor.WriteLine($"{liquidacionCuotaModeradora.NumeroLiquidacion};{liquidacionCuotaModeradora.IdentificacionPaciente};{liquidacionCuotaModeradora.NombrePaciente};" +
                     $"{liquidacionCuotaModeradora.TipoAfiliacion};{liquidacionCuotaModeradora.SalarioDevengado};" +
-                    $"{liquidacionCuotaModeradora.ValorServicio};{liquidacionCuotaModeradora.CuotaModeradora};{liquidacionCuotaModeradora.CuotaModeradoraReal}" +
+                    $"{liquidacionCuotaModeradora.ValorServicio};{liquidacionCuotaModeradora.CuotaModeradora};{liquidacionCuotaModeradora.CuotaModeradoraReal};" +
                     $"{liquidacionCuotaModeradora.Tarifa};{liquidacionCuotaModeradora.TopeMaximo}");
                 escritor.Close();
                 file.Close();
@@ -55,8 +55,7 @@ namespace DAL
         private static LiquidacionCuotaModeradora Mapear(string linea)
         {
             LiquidacionCuotaModeradora liquidacionCuotaModeradora;
-            char delimitador = ';';
-            string[] arrayLiquidacionCuotaModeradora = linea.Split(delimitador);
+            string[] arrayLiquidacionCuotaModeradora = linea.Split(';');
             string tipoLiquidacion = arrayLiquidacionCuotaModeradora[3];
             if (tipoLiquidacion.Equals("Subsidiado"))
             {
@@ -75,7 +74,7 @@ namespace DAL
             liquidacionCuotaModeradora.CuotaModeradora = Convert.ToDouble(arrayLiquidacionCuotaModeradora[6]);
             liquidacionCuotaModeradora.CuotaModeradoraReal = Convert.ToDouble(arrayLiquidacionCuotaModeradora[7]);
             liquidacionCuotaModeradora.Tarifa = Convert.ToDouble(arrayLiquidacionCuotaModeradora[8]);
-            //liquidacionCuotaModeradora.TopeMaximo = Convert.ToDouble(arrayLiquidacionCuotaModeradora[9]);
+            liquidacionCuotaModeradora.TopeMaximo = Convert.ToDouble(arrayLiquidacionCuotaModeradora[9]);
             return liquidacionCuotaModeradora;
         }
         public List<LiquidacionCuotaModeradora> FiltrarPorAfiliacion(string tipoAfiliacion)
@@ -120,5 +119,9 @@ namespace DAL
                 throw;
             }
         }
+    public RegimenContributivo BuscarPorLiquidacion(string numeroLiquidacion)
+        {
+            return (RegimenContributivo)liquidacionCuotasModeradoras.Find(liquidacionCuotaModeradora => liquidacionCuotaModeradora.NumeroLiquidacion.Equals(numeroLiquidacion));
+        }     
     }
 }

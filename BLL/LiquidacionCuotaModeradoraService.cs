@@ -55,5 +55,9 @@ namespace BLL
         {
             liquidacionCuotaModeradoraRepository.Eliminar(numeroLiquidacion);
         }
+        public RegimenContributivo BuscarPorLiquidacion(string numeroLiquidacion)
+        {
+            return liquidacionCuotaModeradoraRepository.BuscarPorLiquidacion(numeroLiquidacion);
+        }
     }
 }
