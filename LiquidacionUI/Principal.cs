@@ -19,6 +19,7 @@ namespace LiquidacionUI
         public Principal()
         {
             InitializeComponent();
+            BtnEditar.Enabled = false;
         }
 
         private void BtnCalcular_Click(object sender, EventArgs e)
@@ -41,6 +42,7 @@ namespace LiquidacionUI
             liquidacionCuotaModeradora.TipoAfiliacion = CmbTipoAfiliacion.SelectedItem.ToString();
             liquidacionCuotaModeradora.SalarioDevengado = Convert.ToDouble(TxtSalarioDevengado.Text.Trim());
             liquidacionCuotaModeradora.ValorServicio = Convert.ToDouble(TxtValorServicio.Text.Trim());
+            liquidacionCuotaModeradora.FechaAlmacenamiento = DateTime.Today;
 
             liquidacionCuotaModeradora.CalcularCuotaModeradora();
             TxtCuotaModeradora.Text = liquidacionCuotaModeradora.CuotaModeradora.ToString();
@@ -99,6 +101,8 @@ namespace LiquidacionUI
 
                 Desabilitar();
                 BtnGuardar.Enabled = false;
+                BtnEditar.Enabled = true;
+
             }
             else
             {

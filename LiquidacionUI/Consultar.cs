@@ -33,6 +33,7 @@ namespace LiquidacionUI
             {
                 TblVista.DataSource = null;
                 TblVista.DataSource = liquidacionCuotasModeradoras;
+                ConsultarAño();
             }
 
         }
@@ -52,6 +53,10 @@ namespace LiquidacionUI
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             TblVista.DataSource = liquidacionCuotaModeradoraService.BuscarPorNombre(TxtConsultaNombre.Text.Trim());
+        }
+        private void ConsultarAño()
+        {
+            TblVista.DataSource = liquidacionCuotaModeradoraService.FiltrarAño(CmbAño.Text);
         }
     }
 }

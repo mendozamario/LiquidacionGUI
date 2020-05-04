@@ -18,6 +18,7 @@ namespace Entity
         public double CuotaModeradoraReal { get; set; }
         public double Tarifa { get; set; }
         public double TopeMaximo { get; set; }
+        public DateTime FechaAlmacenamiento { get; set; }
         public const double SalarioMinimo = 980657;
 
         public void CalcularCuotaModeradora()

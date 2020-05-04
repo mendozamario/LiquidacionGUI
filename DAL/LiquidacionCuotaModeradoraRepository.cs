@@ -25,7 +25,7 @@ namespace DAL
                 escritor.WriteLine($"{liquidacionCuotaModeradora.NumeroLiquidacion};{liquidacionCuotaModeradora.IdentificacionPaciente};{liquidacionCuotaModeradora.NombrePaciente};" +
                     $"{liquidacionCuotaModeradora.TipoAfiliacion};{liquidacionCuotaModeradora.SalarioDevengado};" +
                     $"{liquidacionCuotaModeradora.ValorServicio};{liquidacionCuotaModeradora.CuotaModeradora};{liquidacionCuotaModeradora.CuotaModeradoraReal};" +
-                    $"{liquidacionCuotaModeradora.Tarifa};{liquidacionCuotaModeradora.TopeMaximo}");
+                    $"{liquidacionCuotaModeradora.Tarifa};{liquidacionCuotaModeradora.TopeMaximo};{liquidacionCuotaModeradora.FechaAlmacenamiento}");
                 escritor.Close();
                 file.Close();
             }
@@ -75,6 +75,7 @@ namespace DAL
             liquidacionCuotaModeradora.CuotaModeradoraReal = Convert.ToDouble(arrayLiquidacionCuotaModeradora[7]);
             liquidacionCuotaModeradora.Tarifa = Convert.ToDouble(arrayLiquidacionCuotaModeradora[8]);
             liquidacionCuotaModeradora.TopeMaximo = Convert.ToDouble(arrayLiquidacionCuotaModeradora[9]);
+            liquidacionCuotaModeradora.FechaAlmacenamiento = Convert.ToDateTime(arrayLiquidacionCuotaModeradora[10]);
             return liquidacionCuotaModeradora;
         }
         public List<LiquidacionCuotaModeradora> FiltrarPorAfiliacion(string tipoAfiliacion)
@@ -132,6 +133,14 @@ namespace DAL
             var = Eliminar(numeroLiquidacion);
             Guardar(liquidacionCuotaMoeradora);
             return var;
+        }
+        public List<LiquidacionCuotaModeradora> FiltarMes(string mes)
+        {
+            return liquidacionCuotasModeradoras.Where(l => l.FechaAlmacenamiento.Month.Equals(mes)).ToList();
+        }
+        public List<LiquidacionCuotaModeradora> FiltrarAño(string año)
+        {
+            return liquidacionCuotasModeradoras.Where(l => l.FechaAlmacenamiento.Year.Equals(año)).ToList();
         }
     }
 }

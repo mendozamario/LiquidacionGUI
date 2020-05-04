@@ -83,5 +83,13 @@ namespace BLL
                 return "No pudo ser modificado, lamentamos los inconvenientes";
             }
         }
+        public List<LiquidacionCuotaModeradora> FiltarMes(string mes)
+        {
+            return liquidacionCuotaModeradoraRepository.FiltarMes(mes);
+        }
+        public List<LiquidacionCuotaModeradora> FiltrarAño(string año)
+        {
+            return liquidacionCuotaModeradoraRepository.FiltrarAño(año);
+        }
     }
 }

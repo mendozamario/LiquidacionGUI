@@ -47,6 +47,10 @@
             this.LblValorTotal = new System.Windows.Forms.Label();
             this.TxtConsultaNombre = new System.Windows.Forms.TextBox();
             this.LblNombrePaciente = new System.Windows.Forms.Label();
+            this.TxtMes = new System.Windows.Forms.Label();
+            this.TxtAño = new System.Windows.Forms.Label();
+            this.CmbAño = new System.Windows.Forms.ComboBox();
+            this.CmbMes = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.TblVista)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +59,7 @@
             this.TblVista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.TblVista.Location = new System.Drawing.Point(12, 33);
             this.TblVista.Name = "TblVista";
-            this.TblVista.Size = new System.Drawing.Size(1049, 177);
+            this.TblVista.Size = new System.Drawing.Size(1148, 177);
             this.TblVista.TabIndex = 0;
             // 
             // BtnConsultar
@@ -65,9 +69,9 @@
             this.BtnConsultar.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 15.75F);
             this.BtnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("BtnConsultar.Image")));
             this.BtnConsultar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnConsultar.Location = new System.Drawing.Point(818, 283);
+            this.BtnConsultar.Location = new System.Drawing.Point(930, 284);
             this.BtnConsultar.Name = "BtnConsultar";
-            this.BtnConsultar.Size = new System.Drawing.Size(160, 59);
+            this.BtnConsultar.Size = new System.Drawing.Size(160, 73);
             this.BtnConsultar.TabIndex = 1;
             this.BtnConsultar.Text = "Consultar";
             this.BtnConsultar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -106,6 +110,7 @@
             // 
             // TxtTotal
             // 
+            this.TxtTotal.Enabled = false;
             this.TxtTotal.Location = new System.Drawing.Point(86, 240);
             this.TxtTotal.Name = "TxtTotal";
             this.TxtTotal.Size = new System.Drawing.Size(51, 20);
@@ -113,6 +118,7 @@
             // 
             // TxtSubsidiado
             // 
+            this.TxtSubsidiado.Enabled = false;
             this.TxtSubsidiado.Location = new System.Drawing.Point(267, 240);
             this.TxtSubsidiado.Name = "TxtSubsidiado";
             this.TxtSubsidiado.Size = new System.Drawing.Size(51, 20);
@@ -120,6 +126,7 @@
             // 
             // TxtContributivo
             // 
+            this.TxtContributivo.Enabled = false;
             this.TxtContributivo.Location = new System.Drawing.Point(474, 240);
             this.TxtContributivo.Name = "TxtContributivo";
             this.TxtContributivo.Size = new System.Drawing.Size(51, 20);
@@ -143,13 +150,14 @@
             "Todos",
             "Subsidiado",
             "Contributivo"});
-            this.CmbTipo.Location = new System.Drawing.Point(100, 367);
+            this.CmbTipo.Location = new System.Drawing.Point(97, 371);
             this.CmbTipo.Name = "CmbTipo";
             this.CmbTipo.Size = new System.Drawing.Size(121, 21);
             this.CmbTipo.TabIndex = 9;
             // 
             // TxtValorContributivo
             // 
+            this.TxtValorContributivo.Enabled = false;
             this.TxtValorContributivo.Location = new System.Drawing.Point(696, 307);
             this.TxtValorContributivo.Name = "TxtValorContributivo";
             this.TxtValorContributivo.Size = new System.Drawing.Size(87, 20);
@@ -157,6 +165,7 @@
             // 
             // TxtValorSubsidiado
             // 
+            this.TxtValorSubsidiado.Enabled = false;
             this.TxtValorSubsidiado.Location = new System.Drawing.Point(406, 307);
             this.TxtValorSubsidiado.Name = "TxtValorSubsidiado";
             this.TxtValorSubsidiado.Size = new System.Drawing.Size(87, 20);
@@ -164,6 +173,7 @@
             // 
             // TxtValorTotal
             // 
+            this.TxtValorTotal.Enabled = false;
             this.TxtValorTotal.Location = new System.Drawing.Point(131, 308);
             this.TxtValorTotal.Name = "TxtValorTotal";
             this.TxtValorTotal.Size = new System.Drawing.Size(87, 20);
@@ -201,7 +211,7 @@
             // 
             // TxtConsultaNombre
             // 
-            this.TxtConsultaNombre.Location = new System.Drawing.Point(455, 374);
+            this.TxtConsultaNombre.Location = new System.Drawing.Point(442, 372);
             this.TxtConsultaNombre.Name = "TxtConsultaNombre";
             this.TxtConsultaNombre.Size = new System.Drawing.Size(175, 20);
             this.TxtConsultaNombre.TabIndex = 16;
@@ -211,18 +221,105 @@
             // 
             this.LblNombrePaciente.AutoSize = true;
             this.LblNombrePaciente.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 15.75F);
-            this.LblNombrePaciente.Location = new System.Drawing.Point(262, 367);
+            this.LblNombrePaciente.Location = new System.Drawing.Point(249, 367);
             this.LblNombrePaciente.Name = "LblNombrePaciente";
             this.LblNombrePaciente.Size = new System.Drawing.Size(187, 25);
             this.LblNombrePaciente.TabIndex = 17;
             this.LblNombrePaciente.Text = "Nombre del paciente:";
+            // 
+            // TxtMes
+            // 
+            this.TxtMes.AutoSize = true;
+            this.TxtMes.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 15.75F);
+            this.TxtMes.Location = new System.Drawing.Point(25, 416);
+            this.TxtMes.Name = "TxtMes";
+            this.TxtMes.Size = new System.Drawing.Size(49, 25);
+            this.TxtMes.TabIndex = 18;
+            this.TxtMes.Text = "Mes:";
+            // 
+            // TxtAño
+            // 
+            this.TxtAño.AutoSize = true;
+            this.TxtAño.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 15.75F);
+            this.TxtAño.Location = new System.Drawing.Point(249, 416);
+            this.TxtAño.Name = "TxtAño";
+            this.TxtAño.Size = new System.Drawing.Size(47, 25);
+            this.TxtAño.TabIndex = 19;
+            this.TxtAño.Text = "Año:";
+            // 
+            // CmbAño
+            // 
+            this.CmbAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbAño.FormattingEnabled = true;
+            this.CmbAño.Items.AddRange(new object[] {
+            "1999",
+            "2000",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbAño.Location = new System.Drawing.Point(305, 420);
+            this.CmbAño.Name = "CmbAño";
+            this.CmbAño.Size = new System.Drawing.Size(121, 21);
+            this.CmbAño.TabIndex = 20;
+            // 
+            // CmbMes
+            // 
+            this.CmbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMes.FormattingEnabled = true;
+            this.CmbMes.Items.AddRange(new object[] {
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"});
+            this.CmbMes.Location = new System.Drawing.Point(81, 420);
+            this.CmbMes.Name = "CmbMes";
+            this.CmbMes.Size = new System.Drawing.Size(121, 21);
+            this.CmbMes.TabIndex = 21;
             // 
             // Consultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1073, 450);
+            this.ClientSize = new System.Drawing.Size(1173, 471);
+            this.Controls.Add(this.CmbMes);
+            this.Controls.Add(this.CmbAño);
+            this.Controls.Add(this.TxtAño);
+            this.Controls.Add(this.TxtMes);
             this.Controls.Add(this.LblNombrePaciente);
             this.Controls.Add(this.TxtConsultaNombre);
             this.Controls.Add(this.TxtValorContributivo);
@@ -272,5 +369,9 @@
         private System.Windows.Forms.Label LblValorTotal;
         private System.Windows.Forms.TextBox TxtConsultaNombre;
         private System.Windows.Forms.Label LblNombrePaciente;
+        private System.Windows.Forms.Label TxtMes;
+        private System.Windows.Forms.Label TxtAño;
+        private System.Windows.Forms.ComboBox CmbAño;
+        private System.Windows.Forms.ComboBox CmbMes;
     }
 }
